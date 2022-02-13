@@ -84,7 +84,8 @@ def detect_img(model, img_path, CONF_THRESH=0.8, color=(255, 0, 255)):
     img = img / 255.
 
     predictions = model(img[None,...])
-    boxes = predictions[0]['boxes'][predictions[0]['scores'] > CONF_THRESH]
+    #print(predictions[0]['labels'])
+    boxes = predictions[0]['boxes'][(predictions[0]['scores'] > CONF_THRESH) & (predictions[0]['labels'] == 1)]
 
     boxes_dict = {}
     boxes_dict['boxes'] = boxes

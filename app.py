@@ -59,7 +59,7 @@ import torchvision
 model = torchvision.models.detection.fasterrcnn_resnet50_fpn(pretrained=True)
 
 import cv2
-#import torch
+import torch
 import numpy as np
 
 def plot_preds(numpy_img, preds, color=(255, 0, 0)):

@@ -8,12 +8,6 @@ from flask import Flask, flash, request, redirect, url_for, Response, make_respo
 from torchvision import transforms
 from werkzeug.utils import secure_filename
 
-import cProfile
-
-pr = cProfile.Profile()
-pr.enable()
-
-
 UPLOAD_FOLDER = './tmp/'
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 
@@ -96,10 +90,9 @@ def detect_1():
     fn = upload_file()
 
     if not(type(fn) == str):
-        return fn
+        return Response(json.dumps([]), mimetype="text/json")
 
     r = detect_boxes(model, fn)
-    #print(r)
     return Response(json.dumps(r), mimetype="text/json")
 
 

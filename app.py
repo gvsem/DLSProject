@@ -67,18 +67,18 @@ import torchvision
 
 model = torchvision.models.detection.fasterrcnn_resnet50_fpn(pretrained=True)
 
-import cv2
-import torch
+# import cv2
+# import torch
 
 def detect_boxes(model, img_path, CONF_THRESH=0.8):
 
     model = model.eval()
     img_numpy = Image.open(img_path)
     img = transforms.ToTensor()(img_numpy)
-    img2 = torch.from_numpy(cv2.imread(img_path)[:,:,::-1].astype('float32')).permute(2,0,1)
+    #img2 = torch.from_numpy(cv2.imread(img_path)[:,:,::-1].astype('float32')).permute(2,0,1)
 
-    print(img.shape)
-    print(img2.shape)
+    #print(img.shape)
+    #print(img2.shape)
 
     img = img / 255.
 

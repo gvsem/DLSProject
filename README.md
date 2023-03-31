@@ -11,3 +11,14 @@ Layout is created using Bootstrap Studio, backend is written as a Flask Python A
 Pre-trained model `fasterrcnn_resnet50_fpn` is used.
 
 ![](etc/web.png)
+
+## Build & Run
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+cd ..
+pip3 install -r requirements.txt
+
+python3 run.py
+```
